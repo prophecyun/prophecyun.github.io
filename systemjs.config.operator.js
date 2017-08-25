@@ -23,17 +23,17 @@
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
-      '@angular/material': 'npm:@angular/material/material.umd.js',
+      // '@angular/material': 'npm:@angular/material/material.umd.js',
 
       // other libraries
       'rxjs': 'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
-      'ng2-dragula': 'npm:ng2-dragula',
-      'dragula': 'npm:dragula',
+      // 'ng2-dragula': 'npm:ng2-dragula',
+      // 'dragula': 'npm:dragula',
       'contra': 'npm:contra',
       'crossvent': 'npm:crossvent',
       'atoa': 'npm:atoa',
-      'ticky': 'npm:ticky',
+      // 'ticky': 'npm:ticky',
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpModule } from '@angular/http'
-import { MaterialModule } from '@angular/material'
+// import { MaterialModule } from '@angular/material'
 import { FormsModule} from '@angular/forms'
 
 import { OperatorLayout } from './operator.layout'
@@ -18,7 +18,7 @@ import { AppConfigService } from '../config/app.config';
     imports: [
         BrowserModule,
         HttpModule,
-        MaterialModule.forRoot(),
+        // MaterialModule,
         FormsModule
     ],
     

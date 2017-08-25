@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+// import { Subject } from 'rxjs/subject'
 var app_config_1 = require("../config/app.config");
 var http_1 = require("@angular/http");
 var GoogleMapService = (function () {
@@ -491,8 +492,7 @@ GoogleMapService = __decorate([
     core_1.Injectable()
     // Overarching service to handle Google map related method calls
     ,
-    __metadata("design:paramtypes", [app_config_1.AppConfigService, typeof (_a = typeof http_1.Http !== "undefined" && http_1.Http) === "function" && _a || Object])
+    __metadata("design:paramtypes", [app_config_1.AppConfigService, http_1.Http])
 ], GoogleMapService);
 exports.GoogleMapService = GoogleMapService;
-var _a;
 //# sourceMappingURL=map.google.service.js.map

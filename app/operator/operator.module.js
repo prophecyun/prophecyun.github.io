@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
-var material_1 = require("@angular/material");
+// import { MaterialModule } from '@angular/material'
 var forms_1 = require("@angular/forms");
 var operator_layout_1 = require("./operator.layout");
 var operator_control_component_1 = require("./operator.control.component");
@@ -25,7 +25,7 @@ OperatorModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             http_1.HttpModule,
-            material_1.MaterialModule.forRoot(),
+            // MaterialModule,
             forms_1.FormsModule
         ],
         declarations: [

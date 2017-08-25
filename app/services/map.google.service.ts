@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Subject } from 'rxjs/subject'
+// import { Subject } from 'rxjs/subject'
 import { AppConfigService } from '../config/app.config';
 import { Http } from '@angular/http';
 
