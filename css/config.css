@@ -1,0 +1,15 @@
+:root {
+    /* core variables */
+    --m: 10px;
+    --frame-w: 640px;
+    --frame-h: 360px;
+    
+    /* calculated variables */
+    --m2: calc(var(--m) * 2);
+    --frame-margin: var(--m) var(--m) var(--m) var(--m);
+}
+
+.fill {
+    height: 100%;
+    width: 100%;
+}
