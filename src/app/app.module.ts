@@ -14,8 +14,8 @@ import { StompRService } from '@stomp/ng2-stompjs';
 // import { AmazingTimePickerModule } from 'amazing-time-picker'; 
 /* Services */
 import { CesiumService } from './service/cesium.service';
-import { SocketWebService } from './service/web/socket.web.service';
-import { ClientWebService } from './service/web/client.web.service';
+// import { SocketWebService } from './service/web/socket.web.service';
+// import { ClientWebService } from './service/web/client.web.service';
 import { LoadMapLayerService } from './service/loadMapLayer.service';
 import { F24TrackDataService } from './service/f24TrackData.service';
 import { InterceptorService } from './service/interceptor.service';
@@ -63,8 +63,8 @@ import { IconConfig } from './config/icon.config';
     AppConfig,
     IconConfig,
     CesiumService,
-    SocketWebService,
-    ClientWebService,
+    // SocketWebService,
+    // ClientWebService,
     LoadMapLayerService,
     F24TrackDataService,
     StompRService,
