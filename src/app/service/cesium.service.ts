@@ -536,9 +536,9 @@ export class CesiumService {
   private prioritizePicks(pickedObjects): any {
     // console.log('candidates', pickedObjects);
     // for (let i = 0; i < pickedObjects.length; i += 1) {
-    var bestScore = -1;
-    var chosen;
-    pickedObjects.forEach(element => {
+    let bestScore = -1;
+    let chosen;
+    pickedObjects.forEach((element) => {
       const layerName = element.id.type;
       const score = this.getScore(layerName);
       // console.log('candidate', layerName, score);

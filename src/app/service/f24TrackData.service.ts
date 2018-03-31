@@ -154,7 +154,7 @@ export class F24TrackDataService {
   private plotTrail(dataSource: Cesium.DataSource, trailPoints: any[]) {
     // Draw polyline entity
     // console.log('trail points', trailPoints);
-    var trailPositions: Cesium.Cartesian3[] = [];
+    const trailPositions: Cesium.Cartesian3[] = [];
     for (let i = 0; i < trailPoints.length; i += 1) {
       const iLat = trailPoints[i].lat;
       const iLon = trailPoints[i].lng;
@@ -166,7 +166,7 @@ export class F24TrackDataService {
     }
     // console.log('trail positions', trailPositions);
     const trailId = 'trail';
-    var polylineEntity = dataSource.entities.getById(trailId);
+    let polylineEntity = dataSource.entities.getById(trailId);
     if (polylineEntity) {
       // update
     } else {
