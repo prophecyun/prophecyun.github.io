@@ -1,0 +1,19 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="402" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse stroke="#ffffff" ry="24.500001" rx="24" id="svg_1" cy="355.999999" cx="203.500001" stroke-width="30" fill="#EDFFFF"/>
+  <text stroke="#ffffff" transform="matrix(5.615531521654266,0,0,7.0812353602964855,-1198.913771764449,-1259.4027922270818) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_2" y="199.714912" x="225.458515" fill-opacity="null" stroke-width="2" fill="#ffffff">AED</text>
+  <line stroke="#ffffff" stroke-width="20" stroke-linecap="null" stroke-linejoin="null" id="svg_3" y2="327.5" x2="204.5" y1="148.499999" x1="204.5" fill="none"/>
+  <ellipse ry="9" rx="15.5" id="svg_6" cy="373" cx="213" fill-opacity="null" stroke-opacity="null" stroke-width="30" stroke="#ffffff" fill="#EDFFFF"/>
+  <ellipse stroke="#426373" ry="16.000001" rx="16.000001" id="svg_7" cy="355.999999" cx="205.5" stroke-width="0" fill="#4C261D"/>
+ </g>
+</svg>
