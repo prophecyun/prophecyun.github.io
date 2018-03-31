@@ -1,0 +1,290 @@
+<div id="{{cesiumMapContainerId}}" class="cesium-container" fxFlex>
+  <!-- Layer Sidebar -->
+  <button id="layer-sidebar-button" class="cesium-button cesium-toolbar-button icon-button" (click)="toggleLayerSidebarVisibility()"
+    [ngClass]="{'button-outline-highlight': isOverlayManagerVisible}" matTooltip="Layer Management" matTooltipPosition="right">
+    <img src="assets/icons/solid/layers.svg" height="20px" width="20px">
+  </button>
+
+  <!-- Overlay Manager -->
+  <div id="layer-sidebar" *ngIf="cesiumViewer" [ngStyle]="{'display': (isOverlayManagerVisible) ? 'initial' : 'none'}">
+    <!-- Header -->
+    <div id="layer-sidebar-header" fxLayout="row" fxLayoutAlign="start center">
+      <span>Map Layers</span>
+      <span fxFlex></span>
+      <button class="cesium-button cesium-toolbar-button icon-button" (click)="saveCanvasAsImage()" matTooltip="Save View as PNG"
+        matTooltipPosition="right">
+        <img src="assets/icons/solid/png-file-format-symbol.svg" height="20px;" width="20px;">
+      </button>
+      <button class="cesium-button cesium-toolbar-button icon-button" (click)="importDataSourceFromGeoJson()" matTooltip="Import Layer"
+        matTooltipPosition="right">
+        <img src="assets/icons/solid/import-alt-a.svg" height="20px;" width="20px;">
+      </button>
+      <input id="file-layer-upload" type="file" (click)="resetFileUploadElement($event)" (change)="handleFileLayerUpload($event)"
+        style="display:none">
+      <button class="cesium-button cesium-toolbar-button icon-button" (click)="addDataSource()" matTooltip="Add Personal Layer"
+        matTooltipPosition="right">
+        <img src="assets/icons/solid/plus-white.svg" height="20px" width="20px">
+      </button>
+    </div>
+
+    <!-- Content -->
+    <div id="layer-sidebar-content" *ngIf="cesiumViewer && cesiumViewer.dataSources">
+      <p-accordion [multiple]="true">
+        <!-- Personal Layers -->
+        <p-accordionTab header="Personal Layers ({{cesiumDataSources.length}})" [selected]="true">
+          <div class="layer-container layer-container-header" fxLayout="row" fxLayoutAlign="start center">
+            <span class="header-text" matTooltip="Current Active Layer" matTooltipPosition="right">
+              Active: {{activeDataSource.name}}
+            </span>
+          </div>
+
+          <div class="layer-container layer-container-header" *ngIf="cesiumDataSources && cesiumDataSources.length > 1" fxLayout="row"
+            fxLayoutAlign="start center">
+            <p-checkbox #selectAllCheckbox class="title-text checkbox" name="datasource-group" binary="true" (onChange)="toggleSelectAll(selectAllCheckbox, cesiumDataSources)"></p-checkbox>
+            <span class="title-text" fxFlex>Select All</span>
+
+            <div fxLayout="row" fxLayoutAlign="end center">
+              <!-- Toggle All Labels -->
+              <button class="cesium-button cesium-toolbar-button icon-button" *ngIf="atLeastMoreThanOneDataSourcesHaveLabels(cesiumDataSources)"
+                (click)="toggleAllLabels(cesiumDataSources, 'personal');">
+                <img *ngIf="isCesiumPersonalDataSourcesLabelsVisible" src="assets/icons/solid/eye-white.svg" matTooltip="Hide All Labels"
+                  matTooltipPosition="right" height="20px;" width="20px;">
+                <img *ngIf="!isCesiumPersonalDataSourcesLabelsVisible" src="assets/icons/solid/eye-slash-white.svg" matTooltip="Show All Labels"
+                  matTooltipPosition="right" height="20px;" width="20px;">
+              </button>
+            </div>
+          </div>
+
+          <div class="layers-container">
+            <div [ngClass]="{'datasource-active': activeDataSource === dataSource, 'datasource-highlight': activeDataSource !== dataSource}"
+              class="layer-container" *ngFor="let dataSource of cesiumDataSources" (click)="updateActiveDataSource(dataSource);"
+              fxLayout="row" fxLayoutAlign="start center">
+
+              <p-checkbox class="title-text checkbox" name="datasource-group" binary="true" [(ngModel)]="dataSource.show"></p-checkbox>
+              <span class="title-text" fxFlex (click)="updateActiveDataSource(dataSource);" matTooltip="{{dataSource.name}}" matTooltipPosition="right">{{dataSource.name}}</span>
+
+              <div fxLayout="row" fxLayoutAlign="end center">
+                <!-- Toggle Labels -->
+                <button class="cesium-button cesium-toolbar-button icon-button" *ngIf="dataSource.entities && dataSource.entities.values.length > 0 && dataSource.entities.values[0].label"
+                  (click)="toggleLabels(dataSource);">
+                  <img *ngIf="dataSource.entities.values[0].label.show._value" src="assets/icons/solid/eye-white.svg" matTooltip="Hide Labels"
+                    matTooltipPosition="right" height="20px;" width="20px;">
+                  <img *ngIf="!dataSource.entities.values[0].label.show._value" src="assets/icons/solid/eye-slash-white.svg" matTooltip="Show Labels"
+                    matTooltipPosition="right" height="20px;" width="20px;">
+                </button>
+                <!-- Edit Layer Name -->
+                <button class="cesium-button cesium-toolbar-button icon-button" (click)="showEditDataSourceNameDialog(dataSource);" matTooltip="Edit Layer Name"
+                  matTooltipPosition="right">
+                  <img src="assets/icons/regular/edit-white.svg" height="20px;" width="20px;">
+                </button>
+                <!-- Export Layer As GeoJson -->
+                <button class="cesium-button cesium-toolbar-button icon-button" (click)="exportDataSourceAsGeoJson(dataSource)" matTooltip="Export Layer"
+                  matTooltipPosition="right">
+                  <img src="assets/icons/solid/export.svg" height="17px;" width="17px;">
+                </button>
+                <!-- Publish Layer -->
+                <button class="cesium-button cesium-toolbar-button icon-button" (click)="publishDataSource(dataSource)" matTooltip="Publish Layer"
+                  matTooltipPosition="right">
+                  <img src="assets/icons/solid/share-alt-white.svg" height="17px;" width="17px;">
+                </button>
+                <!-- Remove Layer -->
+                <button class="cesium-button cesium-toolbar-button icon-button" *ngIf="cesiumDataSources.length > 1" (click)="removeDataSource(dataSource);"
+                  matTooltip="Remove Layer" matTooltipPosition="right">
+                  <img src="assets/icons/solid/trash-alt-white.svg" height="20px;" width="20px;">
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </p-accordionTab>
+
+
+        <!-- Static Layers -->
+        <p-accordionTab header="Static Layers ({{cesiumStaticDataSources.length}})" [selected]="(cesiumStaticDataSources.length > 0)">
+          <div class="layer-container layer-container-header" *ngIf="cesiumStaticDataSources && cesiumStaticDataSources.length > 1"
+            fxLayout="row" fxLayoutAlign="start center">
+            <p-checkbox #selectAllCheckbox class="title-text checkbox" name="static-datasource-group" binary="true" (onChange)="toggleSelectAll(selectAllCheckbox, cesiumStaticDataSources)"></p-checkbox>
+            <span class="title-text" fxFlex>Select All</span>
+
+            <div fxLayout="row" fxLayoutAlign="end center">
+              <!-- Toggle All Labels -->
+              <button class="cesium-button cesium-toolbar-button icon-button" *ngIf="atLeastMoreThanOneDataSourcesHaveLabels(cesiumStaticDataSources)"
+                (click)="toggleAllLabels(cesiumStaticDataSources, 'static');">
+                <img *ngIf="isCesiumStaticDataSourcesLabelsVisible" src="assets/icons/solid/eye-white.svg" matTooltip="Hide All Labels" matTooltipPosition="right"
+                  height="20px;" width="20px;">
+                <img *ngIf="!isCesiumStaticDataSourcesLabelsVisible" src="assets/icons/solid/eye-slash-white.svg" matTooltip="Show All Labels"
+                  matTooltipPosition="right" height="20px;" width="20px;">
+              </button>
+            </div>
+          </div>
+
+          <div class="layers-container">
+            <div class="layer-container" *ngFor="let dataSource of cesiumStaticDataSources" fxLayout="row" fxLayoutAlign="start center">
+              <p-checkbox class="title-text checkbox" name="static-datasource-group" binary="true" [(ngModel)]="dataSource.show"></p-checkbox>
+              <span class="title-text" fxFlex matTooltip="{{dataSource.name}}" matTooltipPosition="right">{{dataSource.name}}</span>
+
+              <div fxLayout="row" fxLayoutAlign="end center">
+                <!-- Toggle Labels -->
+                <button class="cesium-button cesium-toolbar-button icon-button" *ngIf="dataSource.entities && dataSource.entities.values.length > 0 && dataSource.entities.values[0].label"
+                  (click)="toggleLabels(dataSource);">
+                  <img *ngIf="dataSource.entities.values[0].label.show._value" src="assets/icons/solid/eye-white.svg" matTooltip="Hide Labels"
+                    matTooltipPosition="right" height="20px;" width="20px;">
+                  <img *ngIf="!dataSource.entities.values[0].label.show._value" src="assets/icons/solid/eye-slash-white.svg" matTooltip="Show Labels"
+                    matTooltipPosition="right" height="20px;" width="20px;">
+                </button>
+              </div>
+            </div>
+          </div>
+        </p-accordionTab>
+
+        <!-- Dynamic Layers -->
+        <p-accordionTab header="Dynamic Layers ({{cesiumDynamicDataSources.length}})" [selected]="(cesiumDynamicDataSources.length > 0)">
+          <div class="layer-container layer-container-header" *ngIf="cesiumDynamicDataSources && cesiumDynamicDataSources.length > 1"
+            fxLayout="row" fxLayoutAlign="start center">
+            <p-checkbox #selectAllCheckbox class="title-text checkbox" name="dynamic-datasource-group" binary="true" (onChange)="toggleSelectAll(selectAllCheckbox, cesiumDynamicDataSources)"></p-checkbox>
+            <span class="title-text" fxFlex>Select All</span>
+
+            <div fxLayout="row" fxLayoutAlign="end center">
+              <!-- Toggle All Labels -->
+              <button class="cesium-button cesium-toolbar-button icon-button" *ngIf="atLeastMoreThanOneDataSourcesHaveLabels(cesiumDynamicDataSources)"
+                (click)="toggleAllLabels(cesiumDynamicDataSources, 'dynamic');">
+                <img *ngIf="isCesiumDynamicDataSourcesLabelsVisible" src="assets/icons/solid/eye-white.svg" matTooltip="Hide All Labels"
+                  matTooltipPosition="right" height="20px;" width="20px;">
+                <img *ngIf="!isCesiumDynamicDataSourcesLabelsVisible" src="assets/icons/solid/eye-slash-white.svg" matTooltip="Show All Labels"
+                  matTooltipPosition="right" height="20px;" width="20px;">
+              </button>
+            </div>
+          </div>
+
+          <div class="layers-container">
+            <div class="layer-container" *ngFor="let dataSource of cesiumDynamicDataSources" fxLayout="row" fxLayoutAlign="start center">
+              <p-checkbox class="title-text checkbox" name="dynamic-datasource-group" binary="true" [(ngModel)]="dataSource.show"></p-checkbox>
+              <span class="title-text" fxFlex matTooltip="{{dataSource.name}}" matTooltipPosition="right">{{dataSource.name}}</span>
+
+              <div fxLayout="row" fxLayoutAlign="end center">
+                <!-- Toggle Labels -->
+                <button class="cesium-button cesium-toolbar-button icon-button" *ngIf="dataSource.entities && dataSource.entities.values.length > 0 && dataSource.entities.values[0].label"
+                  (click)="toggleLabels(dataSource);">
+                  <img *ngIf="dataSource.entities.values[0].label.show._value" src="assets/icons/solid/eye-white.svg" matTooltip="Hide Labels"
+                    matTooltipPosition="right" height="20px;" width="20px;">
+                  <img *ngIf="!dataSource.entities.values[0].label.show._value" src="assets/icons/solid/eye-slash-white.svg" matTooltip="Show Labels"
+                    matTooltipPosition="right" height="20px;" width="20px;">
+                </button>
+              </div>
+            </div>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+
+  <!-- Cesium Drawing Tools -->
+  <div id="main-cesium-drawing-tools-button-container" [ngStyle]="{'display': (isOverlayManagerVisible) ? 'flex' : 'none'}">
+    <div *ngFor="let drawingTool of cesiumDrawingToolsProperties.drawingTools">
+      <button id="{{drawingTool.id}}" [ngClass]="{'drawing-tool-button-active': drawingTool.isActivated === true}" class="drawing-tool-button cesium-button cesium-toolbar-button">
+        <img src="{{drawingTool.iconUrl}}" height="20px" width="20px">
+      </button>
+    </div>
+  </div>
+
+  <!-- Dialog - Edit Layer Name -->
+  <p-dialog appendTo="body" header="Edit Layer Name" [(visible)]="displayEditDataSourceDialog" width="400" [responsive]="true"
+    modal="modal">
+    <input id="dialog-edit-datasource-name-input" type="text" class="title-text" style="width:100%;" value="{{editableDataSourceName}}"
+      (input)="validateEditableDataSourceName($event)" (keyup)="clickSaveEditableDataSourceNameButton($event)">
+    <div *ngIf="hasDuplicateDataSourceName" class="dialog-duplicate-error">Layer name already exist!
+    </div>
+    <p-footer>
+      <button id="dialog-save-datasource-name-button" class="toolbar-button cesium-button" [disabled]="hasDuplicateDataSourceName || isInvalidDataSourceName"
+        (click)="saveEditableDataSourceName(editableDataSource);displayEditDataSourceDialog=false;">
+        <span class="title-text">Save</span>
+      </button>
+    </p-footer>
+  </p-dialog>
+
+  <!-- Dialog - Picked Editable Entity -->
+  <p-dialog appendTo="body" *ngIf="cesiumDrawingToolsProperties.pickedEntity && cesiumDrawingToolsProperties.pickedEntityEditable &&
+            (!cesiumDrawingToolsProperties.pickedEntity.displayEntityVideoDialog && cesiumDrawingToolsProperties.displayEntityDetailsDialog)
+            && cesiumDrawingToolsProperties.pickedEntity.label"
+    [(visible)]="cesiumDrawingToolsProperties.displayEntityDetailsDialog" positionTop="{{cesiumDrawingToolsProperties.displayEntityDetailsDialog_yPos}}"
+    positionLeft="{{cesiumDrawingToolsProperties.displayEntityDetailsDialog_xPos}}" width="300">
+    <p-header fxLayout="row" fxLayoutAlign="start center">
+      <input type="text" class="title-text" style="width:100%;" value="{{cesiumDrawingToolsProperties.pickedEntity.name}}" [(ngModel)]="cesiumDrawingToolsProperties.pickedEntity.label.text"
+        [(ngModel)]="cesiumDrawingToolsProperties.pickedEntity.name">
+    </p-header>
+
+    <!-- Content -->
+    <div class="uploaded-content-container" *ngIf="cesiumDrawingToolsProperties.pickedEntity.customProperties.uploadedContentList !== null"
+      fxLayout="row" fxLayoutAlign="start center">
+      <input id="file-upload" type="file" (click)="resetFileUploadElement($event)" (change)="handleFileUploadToEntity($event, cesiumDrawingToolsProperties.pickedEntity)"
+        style="display:none" accept="video/*,image/*" multiple>
+      <div class="uploaded-content-item-container" *ngFor="let uploadedContent of cesiumDrawingToolsProperties.pickedEntity.customProperties.uploadedContentList"
+        fxLayout="column" fxLayoutAlign="center center">
+        <img *ngIf="uploadedContent !== null && uploadedContent.fileType === 'image';" [src]="uploadedContent.fileURL" style="height:100%;width:auto;">
+        <video *ngIf="uploadedContent !== null && uploadedContent.fileType === 'video';" controls height="100%">
+          <source *ngIf="uploadedContent.fileExtension === 'webm'" type="video/webm" [src]="uploadedContent.fileURL">
+          <source *ngIf="uploadedContent.fileExtension === 'mp4'" type="video/mp4" [src]="uploadedContent.fileURL">
+        </video>
+        <button *ngIf="uploadedContent !== null" class="cesium-button cesium-toolbar-button uploaded-content-item-icon-button" (click)="removeFileUploadFromEntity(uploadedContent, cesiumDrawingToolsProperties.pickedEntity)"
+          fxLayout="row" fxLayoutAlign="center center">
+          <img src="assets/icons/solid/cancel-white.svg" height="12px;" width="12px;">
+        </button>
+      </div>
+    </div>
+
+    <p-footer>
+      <div fxLayout="row">
+        <p-colorPicker [(ngModel)]="cesiumDrawingToolsProperties.selectedColor" (onChange)="updateEntityColor();" matTooltip="Color"
+          matTooltipPosition="below"></p-colorPicker>
+
+        <button class="cesium-button cesium-toolbar-button icon-button" *ngFor="let action of cesiumDrawingToolsProperties.displayEntityDetailsActions"
+          (click)="action.function($event, overlayPanel, action)" matTooltip="{{action.title}}" matTooltipPosition="below">
+          <img src="{{action.iconUrl}}" height="20px;" width="20px;">
+        </button>
+
+        <p-overlayPanel appendTo="body" #overlayPanel>
+          <div *ngIf="cesiumDrawingToolsProperties.pickedEntity.billboard">
+            <div class="title-text">Available icons:</div>
+            <div id="icon-container" fxLayout="row">
+              <button class="cesium-button cesium-toolbar-button icon-button" *ngFor="let icon of markerIcons" (click)="updateEntityIcon(icon);">
+                <img src="{{icon.iconUrl}}" height="20px;" width="20px;">
+              </button>
+            </div>
+          </div>
+
+          <div *ngIf="cesiumDrawingToolsProperties.pickedEntity.polyline">
+            <div class="title-text">Line width: {{cesiumDrawingToolsProperties.pickedEntity.polyline.width}}
+            </div>
+            <p-slider [(ngModel)]="cesiumDrawingToolsProperties.pickedEntity.polyline.width" [style]="{'width':'200px'}" [min]="1" [max]="30"></p-slider>
+          </div>
+
+          <div *ngIf="cesiumDrawingToolsProperties.pickedEntity.polygon || cesiumDrawingToolsProperties.pickedEntity.ellipse">
+            <div class="title-text">Transparency [1 - 10]: {{cesiumDrawingToolsProperties.selectedColorAlpha}}
+            </div>
+            <p-slider [(ngModel)]="cesiumDrawingToolsProperties.selectedColorAlpha" [style]="{'width':'200px'}" [min]="1" [max]="10"
+              (onChange)="updateEntityColor();"></p-slider>
+          </div>
+        </p-overlayPanel>
+      </div>
+    </p-footer>
+  </p-dialog>
+
+  <!-- Dialog - Non Editable Entity -->
+  <p-dialog appendTo="body" *ngIf="cesiumDrawingToolsProperties.pickedEntity && !cesiumDrawingToolsProperties.pickedEntityEditable"
+    [(visible)]="cesiumDrawingToolsProperties.displayEntityDetailsDialog" [positionTop]="cesiumDrawingToolsProperties.displayEntityDetailsDialog_yPos"
+    [positionLeft]="cesiumDrawingToolsProperties.displayEntityDetailsDialog_xPos" width="300" [draggable]="true" [resizable]="true">
+    <p-header fxLayout="row" fxLayoutAlign="start center">
+      {{cesiumDrawingToolsProperties.pickedEntity.type}}
+    </p-header>
+
+    <!-- Content -->
+    <table>
+      <tr *ngFor="let data of cesiumDrawingToolsProperties.pickedEntity.data">
+        <td class="context-menu-label">{{data.label}}</td>
+        <td class="context-menu-content">{{data.content || 'NA'}}</td>
+      </tr>
+    </table>
+  </p-dialog>
+
+  <div id="{{cesiumCreditContainerId}}" style="display:none"></div>
+</div>

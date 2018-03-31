@@ -1,6 +1,4 @@
-export declare class MdExpansionModule {
-}
-export { CdkAccordion, MdAccordion, MdAccordionDisplayMode } from './accordion';
-export { AccordionItem } from './accordion-item';
-export { MdExpansionPanel, MdExpansionPanelState, MdExpansionPanelActionRow } from './expansion-panel';
-export { MdExpansionPanelHeader, MdExpansionPanelDescription, MdExpansionPanelTitle } from './expansion-panel-header';
+/**
+ * Generated bundle index. Do not edit.
+ */
+export * from './public-api';

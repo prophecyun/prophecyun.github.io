@@ -1,0 +1,315 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+/*---------------------------------------------
+    Generic Styling - Start
+---------------------------------------------*/
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    color: white;
+}
+/*---------------------------------------------
+    Generic Styling - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+    Scrollbar Styling - Start
+---------------------------------------------*/
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    background-color: #555;
+}
+/*---------------------------------------------
+    Scrollbar Styling - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+    Font Styling - Start
+---------------------------------------------*/
+@font-face {
+    font-family: agency;
+    src: url(/assets/fonts/Agency_FB_Bold.ttf);
+}
+@font-face {
+    font-family: akashi;
+    src: url(/assets/fonts/akashi/Akashi.ttf);
+}
+@font-face {
+    font-family: cabin-bold;
+    src: url(/assets/fonts/cabin/Cabin-Bold.ttf);
+}
+@font-face {
+    font-family: cabin;
+    src: url(/assets/fonts/cabin/Cabin-Regular.ttf);
+}
+/*---------------------------------------------
+    Font Styling - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+    Cesium Button Styling - Start
+---------------------------------------------*/
+.cesium-toolbar-button:focus {
+    border: none !important;
+}
+/*---------------------------------------------
+    Cesium Button Styling - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+    Angular Material Tab Styling - Start
+---------------------------------------------*/
+.mat-tab-label {
+    height: 50px !important;
+    font: 16px cabin-bold;
+    color: white !important;
+}
+
+.mat-tab-label:hover {
+    opacity: 0.85 !important;
+}
+
+.mat-tab-label-active {
+    background: rgba(200, 196, 233, .3) !important;
+    opacity: 1 !important;
+}
+
+.mat-tab-label:focus {
+    background: rgba(200, 196, 233, .3) !important;
+    opacity: 1 !important;
+}
+
+.mat-ink-bar {
+    background-color: #e74c3c !important;
+    height: 3px !important;
+}
+
+.mat-form-field-label{
+    color: #c7c7c7 !important;
+    font-size: 12px !important;
+}
+
+.mat-form-field-infix {
+    height: 21px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    border-top-width: 17px !important;
+}
+
+.mat-form-field-ripple {
+    /* background-color: #e74c3c !important; */
+    background-color: #c7c7c7;
+}
+
+.mat-toolbar-single-row {
+    height: 40px !important;
+}
+
+.mat-toolbar {
+    background: #2a333a !important;
+}
+
+.mat-button-wrapper {
+    padding: 0px !important;
+  }
+
+.mat-form-field-underline {
+    background-color: #c7c7c7;
+}
+
+.mat-input-element {
+    caret-color: white;
+}
+/* ----------------------------------------- 
+    Angular Material Tab Styling - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+    PrimeNG Dialog Styling - Start
+---------------------------------------------*/
+.ui-dialog-titlebar {
+    flex-shrink: 0 !important;
+    padding: 10px !important;
+    margin: 0 !important;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.ui-dialog-title {
+    height: auto;
+    width: 90% !important;
+    font: 20px cabin-bold;
+}
+
+.ui-dialog-titlebar-icon {
+    height: auto;
+    width: 10% !important;
+}
+
+.ui-dialog-titlebar-icon:hover {
+    border: none !important;
+    background: transparent !important;
+}
+
+.ui-dialog-titlebar-close {
+    height: 20px;
+    width: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui-dialog-content {
+    padding: 10px !important;
+    margin: 0 !important;
+}
+
+.ui-dialog-footer {
+    padding: 10px !important;
+    margin: 0 !important;
+}
+/*---------------------------------------------
+    PrimeNG Dialog Styling - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+    PrimeNG ColorPicker Styling - Start
+---------------------------------------------*/
+/* .ui-colorpicker {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    height: 30px !important;
+    width: 30px !important;
+    min-height: 30px !important;
+    min-width: 30px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font: 12px agency !important;
+}
+
+.ui-colorpicker-overlay {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    height: 30px !important;
+    width: 30px !important;
+    min-height: 30px !important;
+    min-width: 30px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font: 12px agency !important;
+} */
+
+.ui-colorpicker-preview {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    height: 30px !important;
+    width: 30px !important;
+    min-height: 30px !important;
+    min-width: 30px !important;
+    margin: 2px 3px !important;
+    padding: 0 !important;
+}
+/*---------------------------------------------
+    PrimeNG ColorPicker Styling - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+    PrimeNG OverlayPanel Styling - Start
+---------------------------------------------*/
+.ui-overlaypanel {
+    /* position: relative !important; */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/*---------------------------------------------
+    PrimeNG OverlayPanel Styling - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+    PrimeNG Accordian Styling - Start
+---------------------------------------------*/
+/* .ui-accordion-header {
+    background-color: rgba(10, 10, 10, 0.8) !important;
+}
+
+.ui-accordion-toggle-icon {
+    color: white !important;
+}
+
+.ui-accordion-header-text {
+    font: 18px cabin-bold !important;
+    color: white !important;
+} 
+
+.ui-accordion-content {
+    padding: 0 !important;
+
+    color: white !important;
+    background-color: rgba(20, 20, 20, 0.5) !important;
+} */
+/*---------------------------------------------
+    PrimeNG Accordian Styling - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+    Traffic Light Colors - Start
+---------------------------------------------*/
+
+.traffic-light-red {
+    background-color: #cc3232 !important;
+}
+
+.traffic-light-amber {
+    background-color: #db7b2b !important;
+}
+
+.traffic-light-green{
+    background-color: #5aab26 !important;
+}
+
+.traffic-light-blue {
+    background-color: royalblue !important;
+}
+
+.traffic-light-grey {
+    background-color: darkslategray !important;
+}
+

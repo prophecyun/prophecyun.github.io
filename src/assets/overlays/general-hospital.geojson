@@ -1,0 +1,137 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.949352,1.340711 ]
+    },
+    "properties": {
+    "Name":"Changi General Hospital (CGH)",
+    "Type":"General Hospital",
+    "Address":"2 Simei Street 3, Singapore 529889"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.8200,1.307049 ]
+    },
+    "properties": {
+    "Name":"Gleneagles Hospital",
+    "Type":"General Hospital",
+    "Address":"6A Napier Rd, Singapore 258500"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.838567,1.423958 ]
+    },
+    "properties": {
+    "Name":"Khoo Teck Puat Hospital",
+    "Type":"General Hospital",
+    "Address":"90 Yishun Central, Singapore 768828"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.837625,1.341499 ]
+    },
+    "properties": {
+    "Name":"Mount Alvernia Hospital",
+    "Type":"General Hospital",
+    "Address":"820 Thomson Rd, Singapore 574623"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.782852,1.294734 ]
+    },
+    "properties": {
+    "Name":"National University Hospital (NUH)",
+    "Type":"General Hospital",
+    "Address":"5 Lower Kent Ridge Rd, Singapore 119074"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.74562,1.334308 ]
+    },
+    "properties": {
+    "Name":"Ng Teng Fong General Hospital & Jurong Community Hospital",
+    "Type":"General Hospital",
+    "Address":"1 Jurong East Street 21, Singapore 609606"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.909335,1.314916 ]
+    },
+    "properties": {
+    "Name":"Parkway East Hospital (former East Shore Hospital)",
+    "Type":"General Hospital",
+    "Address":"321 Joo Chiat Place, Singapore 427990"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.857318,1.301184 ]
+    },
+    "properties": {
+    "Name":"Raffles Hospital",
+    "Type":"General Hospital",
+    "Address":"585 North Bridge Rd, Singapore 188770"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.893845,1.396168 ]
+    },
+    "properties": {
+    "Name":"Sengkang General Hospital",
+    "Type":"General Hospital",
+    "Address":"1 Anchorvale Street, Singapore 544835"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.835586,1.283789 ]
+    },
+    "properties": {
+    "Name":"Singapore General Hospital (SGH)",
+    "Type":"General Hospital",
+    "Address":"Outram Rd, Singapore 169608"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 103.84589,1.321306 ]
+    },
+    "properties": {
+    "Name":"Tan Tock Seng Hospital (TTSH)",
+    "Type":"General Hospital",
+    "Address":"11 Jalan Tan Tock Seng, Singapore 308433"
+    }
+  }
+]
+}

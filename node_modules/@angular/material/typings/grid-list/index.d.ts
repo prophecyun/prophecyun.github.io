@@ -1,4 +1,4 @@
-export declare class MdGridListModule {
-}
-export * from './grid-list';
-export { MdGridTile } from './grid-tile';
+/**
+ * Generated bundle index. Do not edit.
+ */
+export * from './public-api';

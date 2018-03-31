@@ -1,0 +1,309 @@
+.cesium-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.icon-button {
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  height: 30px;
+  width: 30px;
+}
+
+.header-text {
+  font: 18px cabin-bold !important;
+}
+
+.title-text {
+  font: 18px cabin-bold !important;
+
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+/*---------------------------------------------
+    Layer Sidebar - Start
+---------------------------------------------*/
+/*#layer-sidebar-button {*/
+  /*position: absolute; !* Note: Parent container must be set to 'relative' *!*/
+  /*top: calc(50% - 50px); !* Minus half of height *!*/
+  /*left: 0;*/
+  /*z-index: 10;*/
+
+  /*height: 100px !important;*/
+  /*width: 40px !important;*/
+  /*min-width: 40px !important;*/
+  /*padding: 0 !important;*/
+
+  /*border-top-right-radius: 10px;*/
+  /*border-bottom-right-radius: 10px;*/
+
+  /*background: linear-gradient(#202730, #364046) !important;*/
+/*}*/
+
+/*#layer-sidebar {*/
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*z-index: 10;*/
+
+  /*height: calc(100% - 6px) !important;*/
+  /*width: 18vw !important; !* Note: Affects #layer-sidebar-button position in html and #main-cesium-drawing-tools-button-container *!*/
+  /*margin: 3px 0;*/
+  /*padding: 0 !important;*/
+
+  /*border-top-right-radius: 5px;*/
+  /*border-bottom-right-radius: 5px;*/
+
+  /*background-color: rgba(20, 20, 20, 0.5);*/
+/*}*/
+
+/*#layer-sidebar-header {*/
+  /*height: 40px;*/
+  /*width: 100%;*/
+  /*padding-left: 15px;*/
+
+  /*font-family: cabin-bold;*/
+  /*font-size: 20px;*/
+
+  /*border-top-right-radius: 5px;*/
+
+  /*!* background-color: rgba(36, 40, 46, 0.5); *!*/
+  /*background: linear-gradient(#202730, #364046) !important;*/
+/*}*/
+
+/*#layer-sidebar-footer {*/
+  /*position: absolute;*/
+  /*height: 40px;*/
+  /*width: 100%;*/
+  /*padding-left: 10px;*/
+  /*bottom: 0;*/
+
+  /*font-family: cabin-bold;*/
+  /*font-size: 20px;*/
+
+  /*border-bottom-right-radius: 5px;*/
+
+  /*!* background-color: rgba(36, 40, 46, 0.5); *!*/
+  /*background: linear-gradient(#202730, #364046) !important;*/
+/*}*/
+
+#layer-sidebar-button {
+  position: absolute; /* Note: Parent container must be set to 'relative' */
+  z-index: 10;
+
+  top: 5px;
+  left: 5px;
+}
+
+
+
+/*---------------------------------------------
+    Drawing Tools - Start
+---------------------------------------------*/
+/*#main-cesium-drawing-tools-button-container {*/
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 18vw; !* Note: Dependent on #layer-sidebar width *!*/
+  /*z-index: 10;*/
+
+  /*display: flex;*/
+  /*flex-direction: row;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+
+  /*height: 40px;*/
+  /*width: auto;*/
+  /*margin: 3px;*/
+
+  /*border-radius: 5px;*/
+
+  /*background-color: rgba(20, 20, 20, 0.5);*/
+/*}*/
+
+#layer-sidebar {
+  position: absolute;
+  top: 36px;
+  left: 5px;
+  z-index: 10;
+
+  height: calc(100% - 36px - 6px) !important;
+  width: 18vw !important; /* Note: Affects #layer-sidebar-button position in html and #main-cesium-drawing-tools-button-container */
+  margin: 3px 0;
+  padding: 0 !important;
+
+  border-radius: 5px;
+
+  /*background-color: rgba(20, 20, 20, 0.5);*/
+  background-color: transparent;
+}
+
+#layer-sidebar-header {
+  height: 40px;
+  width: 100%;
+  padding-left: 15px;
+
+  font-family: cabin-bold;
+  font-size: 20px;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+   background: rgba(36, 40, 46, 0.8) !important;
+  /*background: linear-gradient(#202730, #364046) !important;*/
+}
+
+/*#layer-sidebar-content {*/
+  /*height: calc(100% - 40px - 40px) !important;*/
+  /*width: 100% !important;*/
+
+  /*overflow: auto !important;*/
+/*}*/
+
+#layer-sidebar-content {
+  height: calc(100% - 40px) !important;
+  width: 100% !important;
+
+  overflow: auto !important;
+}
+
+.layers-container {
+  height: auto !important;
+  max-height: calc(36px * 10) !important; /* Note: Shows max 10 layers */
+  width: 100% !important;
+
+  overflow: auto !important;
+
+  /*background-color: rgba(20, 20, 20, 0.5);*/
+}
+
+.layer-container-header {
+  background-color: rgba(20, 20, 20, 0.7) !important;
+}
+
+.layer-container {
+  flex-shrink: 0;
+
+  height: 36px;
+  width: 100%;
+  padding-left: 10px;
+
+  background-color: rgba(20, 20, 20, 0.6);
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*---------------------------------------------
+    Layer Sidebar - End
+---------------------------------------------*/
+
+#main-cesium-drawing-tools-button-container {
+  position: absolute;
+  top: 36px;
+  left: calc(18vw + 3px); /* Note: Dependent on #layer-sidebar width */
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: auto;
+  width: 40px;
+  margin: 3px;
+  padding: 2px 0;
+
+  border-radius: 5px;
+
+  background-color: rgba(20, 20, 20, 0.6);
+}
+
+.drawing-tool-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  outline: unset;
+}
+
+.drawing-tool-button-active {
+  outline: 1px solid red !important;
+  background-color: rgba(255, 00, 00, 0.3) !important;
+}
+
+/*---------------------------------------------
+    Drawing Tools - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+    Dialog - Start
+---------------------------------------------*/
+.dialog-duplicate-error {
+  font: 20px cabin-bold;
+  color: red;
+}
+
+.uploaded-content-container {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.uploaded-content-item-container {
+  position: relative;
+  height: 125px;
+  width: auto;
+  padding: 2px;
+}
+
+.uploaded-content-item-icon-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  height: 20px;
+  width: 20px;
+}
+
+.context-menu-label {
+  font: 15px cabin-bold;
+  color: navy;
+
+  vertical-align: top;
+}
+
+.context-menu-content {
+  font: 15px cabin-bold;
+
+  vertical-align: top;
+}
+
+.dialog-icon-button {
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+
+  height: 30px;
+  width: 30px;
+}
+/*---------------------------------------------
+    Dialog - End
+---------------------------------------------*/

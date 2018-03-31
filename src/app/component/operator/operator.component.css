@@ -1,0 +1,11 @@
+#layout-operator-container {
+  background-color: #303030;
+}
+
+#top-bar {
+  z-index: 6;
+}
+
+#main-panel {
+  z-index: 0;
+}
