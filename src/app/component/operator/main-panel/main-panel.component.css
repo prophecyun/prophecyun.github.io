@@ -1,0 +1,236 @@
+
+
+
+.sidebar-button-text {
+  writing-mode: vertical-lr;
+  font-family: cabin-bold;
+  font-size: 18px;
+}
+
+.bottombar-button-text {
+  font-family: cabin-bold;
+  font-size: 18px;
+}
+
+.rotate-180 {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.button-outline-highlight{
+  box-shadow: 0 0 0 2pt #e74c3c;
+}
+
+/*---------------------------------------------
+    OpsLog Sidebar - Start
+---------------------------------------------*/
+#opslog-sidebar-button {
+  position: absolute; /* Note: Parent container must be set to 'relative' */
+  top: calc(50% + 1px); /* Minus half of height */
+  right: 0;
+  z-index: 10;
+
+  height: 100px !important;
+  width: 40px !important;
+  min-width: 40px !important;
+  padding: 0 !important;
+
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  background: linear-gradient(#202730, #364046) !important;
+}
+
+.opslog-sidebar-button-close {
+  right: 0 !important;
+}
+
+.opslog-sidebar-button-open {
+  right: 25vw !important;
+}
+
+#opslog-sidebar {
+  /* position: absolute;
+  top: 0;
+  right: 0; */
+  z-index: 10;
+
+  height: 100% !important;
+  width: 25vw !important; /* Note: Affects #opslog-sidebar-button position in html */
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background-color: rgba(20, 20, 20, 1);
+}
+/*---------------------------------------------
+    OpsLog Sidebar - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+    Incidents Sidebar - Start
+---------------------------------------------*/
+#incidents-sidebar-button {
+  position: absolute; /* Note: Parent container must be set to 'relative' */
+  top: calc(50% - 100px - 1px); /* Minus height of button */
+  right: 0;
+  z-index: 10;
+
+  height: 100px !important;
+  width: 40px !important;
+  min-width: 40px !important;
+  padding: 0 !important;
+
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  background: linear-gradient(#202730, #364046) !important;
+}
+
+.incidents-sidebar-button-close {
+  right: 0 !important;
+}
+
+.incidents-sidebar-button-open {
+  right: 25vw !important;
+}
+
+#incidents-sidebar {
+  /* position: absolute;
+  top: 0;
+  right: 0; */
+  z-index: 10;
+
+  height: 100% !important;
+  width: 25vw !important; /* Note: Affects #incidents-sidebar-button position in html */
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background-color: rgba(20, 20, 20, 1);
+}
+
+#incidents-sidebar-header {
+  height: 40px;
+  width: 100%;
+  padding-left: 15px;
+
+  font-family: cabin-bold;
+  font-size: 20px;
+
+  border-top-right-radius: 5px;
+
+  /* background-color: rgba(36, 40, 46, 0.5); */
+  background: linear-gradient(#202730, #364046) !important;
+}
+
+#incidents-sidebar-content {
+  height: calc(100% - 10%) !important;
+  width: 100% !important;
+
+  overflow: auto !important;
+}
+/*---------------------------------------------
+    Incidents Sidebar - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+    CET Bottombar - Start
+---------------------------------------------*/
+#cet-bottombar-button {
+  position: absolute; /* Note: Parent container must be set to 'relative' */
+  /* bottom: 0; */
+  left: calc(50% - 50px);  /* Minus half of height */
+  z-index: 10;
+
+  height: 40px !important;
+  width: 100px !important;
+  padding: 0 !important;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  background: linear-gradient(#202730, #364046) !important;
+}
+
+.cet-bottombar-button-close {
+  bottom: 0 !important;
+}
+
+.cet-bottombar-button-open {
+  bottom: 30vh !important;
+}
+
+#cet-bottombar {
+  /* position: absolute;
+  bottom: 0;
+  left: 0; */
+  z-index: 10;
+
+  height: 30vh !important; /* Note: Affects #cet-bottombar-button position in html */
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background-color: rgba(20, 20, 20, 1);
+}
+
+.mini-circle {
+  border-radius: 10px;
+  height: 20px;
+  padding: 2px;
+}
+
+/*---------------------------------------------
+    CET Bottombar - End
+---------------------------------------------*/
+
+
+/*---------------------------------------------
+    PrimeNG Accordian Styling - Start
+---------------------------------------------*/
+:host >>> .ui-accordion {
+  height: calc(100% - 1px) !important;
+  width: 100% !important;
+}
+
+:host >>> .ui-accordion-header {
+  background-color: rgba(10, 10, 10, 0.7) !important;
+}
+
+:host >>> .ui-accordion-header a {
+  text-decoration: none !important; /* Removes underline styling */
+}
+
+:host >>> .ui-accordion-toggle-icon {
+  color: white !important;
+}
+
+:host >>> .ui-accordion-header-text {
+  font: 18px cabin-bold !important;
+  color: white !important;
+}
+
+:host >>> .ui-accordion-content {
+  padding: 0 !important;
+
+  color: white !important;
+  background-color: transparent !important;
+}
+/*---------------------------------------------
+  PrimeNG Accordian Styling - End
+---------------------------------------------*/
+
+/*---------------------------------------------
+  PrimeNG Notification Styling - Start
+---------------------------------------------*/
+
+:host >>> .ui-growl {
+  top: 80px;
+  left: calc(50% - 10em); /* Minus half of notification width */
+}
+
+/*---------------------------------------------
+  PrimeNG Notification Styling - End
+---------------------------------------------*/

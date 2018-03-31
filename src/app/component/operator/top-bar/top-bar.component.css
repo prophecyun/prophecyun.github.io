@@ -1,0 +1,15 @@
+#toolbar {
+  /* background: linear-gradient(#030303, #33373a93) !important; */
+  background: linear-gradient(#202730, #364046) !important;
+}
+
+.title {
+  font-family: 'akashi';
+  font-size: 28px;
+  margin: 3px;
+  color: #e6e6e6;
+}
+
+.white-text {
+  color: #e6e6e6;
+}
