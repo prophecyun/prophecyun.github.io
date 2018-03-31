@@ -7,7 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { CesiumService } from '../../../../service/cesium.service';
 import { LoadMapLayerService } from '../../../../service/loadMapLayer.service';
 import { F24TrackDataService } from '../../../../service/f24TrackData.service';
-import { SocketWebService } from '../../../../service/web/socket.web.service';
+// import { SocketWebService } from '../../../../service/web/socket.web.service';
 import { MessageService } from 'primeng/components/common/messageservice';
 
 import * as convert from 'xml-js';
@@ -126,7 +126,7 @@ export class AppMapComponent implements AfterViewInit {
   constructor(private cesiumService: CesiumService, private loadMapLayerService: LoadMapLayerService,
     private f24TrackDataService: F24TrackDataService,
     private http: HttpClient, private sanitizer: DomSanitizer,
-    private socketService: SocketWebService, private messageService: MessageService) {
+    private messageService: MessageService) {
   }
 
   ngAfterViewInit() {

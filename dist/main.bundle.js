@@ -457,13 +457,8 @@ module.exports = "<div style=\"position:relative;\" fxFlexFill fxLayout=\"row\">
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainPanelComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_cesium_service__ = __webpack_require__("./src/app/service/cesium.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_loadMapLayer_service__ = __webpack_require__("./src/app/service/loadMapLayer.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__service_web_socket_web_service__ = __webpack_require__("./src/app/service/web/socket.web.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_primeng_components_common_messageservice__ = __webpack_require__("./node_modules/primeng/components/common/messageservice.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_primeng_components_common_messageservice___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_primeng_components_common_messageservice__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_primeng_components_common_messageservice__ = __webpack_require__("./node_modules/primeng/components/common/messageservice.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_primeng_components_common_messageservice___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_primeng_components_common_messageservice__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -474,20 +469,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-
-
-
-
+// import { SocketWebService } from '../../../service/web/socket.web.service';
 
 var MainPanelComponent = /** @class */ (function () {
-    function MainPanelComponent(cesiumService, bftService, http, sanitizer, socketService, messageService) {
-        this.cesiumService = cesiumService;
-        this.bftService = bftService;
-        this.http = http;
-        this.sanitizer = sanitizer;
-        this.socketService = socketService;
-        this.messageService = messageService;
+    function MainPanelComponent() {
     }
     MainPanelComponent.prototype.ngAfterViewInit = function () {
     };
@@ -496,11 +481,9 @@ var MainPanelComponent = /** @class */ (function () {
             selector: 'app-main-panel',
             template: __webpack_require__("./src/app/component/operator/main-panel/main-panel.component.html"),
             styles: [__webpack_require__("./src/app/component/operator/main-panel/main-panel.component.css")],
-            providers: [__WEBPACK_IMPORTED_MODULE_6_primeng_components_common_messageservice__["MessageService"]],
+            providers: [__WEBPACK_IMPORTED_MODULE_1_primeng_components_common_messageservice__["MessageService"]],
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__service_cesium_service__["a" /* CesiumService */], __WEBPACK_IMPORTED_MODULE_4__service_loadMapLayer_service__["a" /* LoadMapLayerService */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["DomSanitizer"],
-            __WEBPACK_IMPORTED_MODULE_5__service_web_socket_web_service__["a" /* SocketWebService */], __WEBPACK_IMPORTED_MODULE_6_primeng_components_common_messageservice__["MessageService"]])
+        __metadata("design:paramtypes", [])
     ], MainPanelComponent);
     return MainPanelComponent;
 }());
@@ -534,9 +517,8 @@ module.exports = "<div id=\"{{cesiumMapContainerId}}\" class=\"cesium-container\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_cesium_service__ = __webpack_require__("./src/app/service/cesium.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_loadMapLayer_service__ = __webpack_require__("./src/app/service/loadMapLayer.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__service_f24TrackData_service__ = __webpack_require__("./src/app/service/f24TrackData.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__service_web_socket_web_service__ = __webpack_require__("./src/app/service/web/socket.web.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_primeng_components_common_messageservice__ = __webpack_require__("./node_modules/primeng/components/common/messageservice.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_primeng_components_common_messageservice___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_primeng_components_common_messageservice__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_primeng_components_common_messageservice__ = __webpack_require__("./node_modules/primeng/components/common/messageservice.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_primeng_components_common_messageservice___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_primeng_components_common_messageservice__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -552,16 +534,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
+// import { SocketWebService } from '../../../../service/web/socket.web.service';
 
 var AppMapComponent = /** @class */ (function () {
-    function AppMapComponent(cesiumService, loadMapLayerService, f24TrackDataService, http, sanitizer, socketService, messageService) {
+    function AppMapComponent(cesiumService, loadMapLayerService, f24TrackDataService, http, sanitizer, messageService) {
         this.cesiumService = cesiumService;
         this.loadMapLayerService = loadMapLayerService;
         this.f24TrackDataService = f24TrackDataService;
         this.http = http;
         this.sanitizer = sanitizer;
-        this.socketService = socketService;
         this.messageService = messageService;
         this.cesiumMapContainerId = 'main-cesium-container';
         this.cesiumCreditContainerId = 'main-cesium-credit-container';
@@ -1073,12 +1054,12 @@ var AppMapComponent = /** @class */ (function () {
             selector: 'app-map',
             template: __webpack_require__("./src/app/component/operator/main-panel/map/map.component.html"),
             styles: [__webpack_require__("./src/app/component/operator/main-panel/map/map.component.css")],
-            providers: [__WEBPACK_IMPORTED_MODULE_7_primeng_components_common_messageservice__["MessageService"]],
+            providers: [__WEBPACK_IMPORTED_MODULE_6_primeng_components_common_messageservice__["MessageService"]],
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__service_cesium_service__["a" /* CesiumService */], __WEBPACK_IMPORTED_MODULE_4__service_loadMapLayer_service__["a" /* LoadMapLayerService */],
             __WEBPACK_IMPORTED_MODULE_5__service_f24TrackData_service__["a" /* F24TrackDataService */],
             __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["DomSanitizer"],
-            __WEBPACK_IMPORTED_MODULE_6__service_web_socket_web_service__["a" /* SocketWebService */], __WEBPACK_IMPORTED_MODULE_7_primeng_components_common_messageservice__["MessageService"]])
+            __WEBPACK_IMPORTED_MODULE_6_primeng_components_common_messageservice__["MessageService"]])
     ], AppMapComponent);
     return AppMapComponent;
 }());
@@ -1402,25 +1383,6 @@ var IconConfig = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["l" /* MatIconRegistry */], __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["DomSanitizer"]])
     ], IconConfig);
     return IconConfig;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/config/web.config.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebConfig; });
-/**
- * Global constants for web resources.
- */
-var WebConfig = /** @class */ (function () {
-    function WebConfig() {
-    }
-    WebConfig.SERVER_URL = 'server.ioc18.tech';
-    return WebConfig;
 }());
 
 
@@ -3510,84 +3472,6 @@ var LoadMapLayerService = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */]])
     ], LoadMapLayerService);
     return LoadMapLayerService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/service/web/socket.web.service.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SocketWebService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__stomp_ng2_stompjs__ = __webpack_require__("./node_modules/@stomp/ng2-stompjs/@stomp/ng2-stompjs.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_web_config__ = __webpack_require__("./src/app/config/web.config.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Handles web socket connection to the server.
- */
-var SocketWebService = /** @class */ (function () {
-    function SocketWebService(stompService) {
-        this.stompService = stompService;
-    }
-    SocketWebService.prototype.init = function () {
-        this.initSocket();
-        // this.subscribeAll();
-    };
-    /**
-     * Initializes connection to STOMP web socket.
-     */
-    SocketWebService.prototype.initSocket = function () {
-        // Web socket configuration
-        var stompConfig = {
-            url: 'ws://' + __WEBPACK_IMPORTED_MODULE_2__config_web_config__["a" /* WebConfig */].SERVER_URL + '/subscribe/websocket',
-            headers: {},
-            heartbeat_in: 0,
-            heartbeat_out: 20000,
-            reconnect_delay: 5000,
-            debug: false,
-        };
-        this.stompService.config = stompConfig;
-        this.stompService.initAndConnect();
-    };
-    /**
-     * Subscribe to all required message queues.
-     */
-    SocketWebService.prototype.subscribeAll = function () {
-        // this.subscribeQueue('/topic/BFT').subscribe((msgBody: string) =>
-        //   this.bftService.updateBFT(JSON.parse(msgBody)),
-        // );
-        // TODO: Add future subscriptions here
-    };
-    /**
-     * Subscribes to a single message queue.
-     */
-    SocketWebService.prototype.subscribeQueue = function (queueName) {
-        var subscription = this.stompService.subscribe(queueName);
-        return subscription.map(function (message) {
-            return message.body;
-        });
-    };
-    SocketWebService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__stomp_ng2_stompjs__["a" /* StompRService */]])
-    ], SocketWebService);
-    return SocketWebService;
 }());
 
 

@@ -6,7 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 import { CesiumService } from '../../../service/cesium.service';
 import { LoadMapLayerService } from '../../../service/loadMapLayer.service';
-import { SocketWebService } from '../../../service/web/socket.web.service';
+// import { SocketWebService } from '../../../service/web/socket.web.service';
 import { MessageService } from 'primeng/components/common/messageservice';
 
 import * as convert from 'xml-js';
@@ -24,9 +24,7 @@ import * as moment from 'moment';
 export class MainPanelComponent implements AfterViewInit {
 
 
-  constructor(private cesiumService: CesiumService, private bftService: LoadMapLayerService,
-    private http: HttpClient, private sanitizer: DomSanitizer,
-    private socketService: SocketWebService, private messageService: MessageService) {
+  constructor() {
   }
 
   ngAfterViewInit() {
