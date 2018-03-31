@@ -290,8 +290,6 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config_app_config__ = __webpack_require__("./src/app/config/app.config.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_web_socket_web_service__ = __webpack_require__("./src/app/service/web/socket.web.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -302,12 +300,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-
+// import { AppConfig } from './config/app.config';
+// import { SocketWebService } from './service/web/socket.web.service';
 var AppComponent = /** @class */ (function () {
-    function AppComponent(appConfig, socketWebService) {
-        this.appConfig = appConfig;
-        this.socketWebService = socketWebService;
+    function AppComponent() {
         // this.socketWebService.init();
     }
     AppComponent = __decorate([
@@ -315,7 +311,7 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: '<router-outlet></router-outlet>',
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__config_app_config__["a" /* AppConfig */], __WEBPACK_IMPORTED_MODULE_2__service_web_socket_web_service__["a" /* SocketWebService */]])
+        __metadata("design:paramtypes", [])
     ], AppComponent);
     return AppComponent;
 }());
@@ -340,20 +336,18 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__module_material_module__ = __webpack_require__("./src/app/module/material.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__stomp_ng2_stompjs__ = __webpack_require__("./node_modules/@stomp/ng2-stompjs/@stomp/ng2-stompjs.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_cesium_service__ = __webpack_require__("./src/app/service/cesium.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_web_socket_web_service__ = __webpack_require__("./src/app/service/web/socket.web.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__service_web_client_web_service__ = __webpack_require__("./src/app/service/web/client.web.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__service_loadMapLayer_service__ = __webpack_require__("./src/app/service/loadMapLayer.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__service_f24TrackData_service__ = __webpack_require__("./src/app/service/f24TrackData.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__service_interceptor_service__ = __webpack_require__("./src/app/service/interceptor.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__module_routing_module__ = __webpack_require__("./src/app/module/routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__component_operator_operator_component__ = __webpack_require__("./src/app/component/operator/operator.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__component_operator_top_bar_top_bar_component__ = __webpack_require__("./src/app/component/operator/top-bar/top-bar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__component_operator_main_panel_main_panel_component__ = __webpack_require__("./src/app/component/operator/main-panel/main-panel.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__component_operator_top_bar_clock_clock_component__ = __webpack_require__("./src/app/component/operator/top-bar/clock/clock.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__component_operator_main_panel_map_map_component__ = __webpack_require__("./src/app/component/operator/main-panel/map/map.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__config_app_config__ = __webpack_require__("./src/app/config/app.config.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__config_icon_config__ = __webpack_require__("./src/app/config/icon.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_loadMapLayer_service__ = __webpack_require__("./src/app/service/loadMapLayer.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__service_f24TrackData_service__ = __webpack_require__("./src/app/service/f24TrackData.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__service_interceptor_service__ = __webpack_require__("./src/app/service/interceptor.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__module_routing_module__ = __webpack_require__("./src/app/module/routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__component_operator_operator_component__ = __webpack_require__("./src/app/component/operator/operator.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__component_operator_top_bar_top_bar_component__ = __webpack_require__("./src/app/component/operator/top-bar/top-bar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__component_operator_main_panel_main_panel_component__ = __webpack_require__("./src/app/component/operator/main-panel/main-panel.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__component_operator_top_bar_clock_clock_component__ = __webpack_require__("./src/app/component/operator/top-bar/clock/clock.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__component_operator_main_panel_map_map_component__ = __webpack_require__("./src/app/component/operator/main-panel/map/map.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__config_app_config__ = __webpack_require__("./src/app/config/app.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__config_icon_config__ = __webpack_require__("./src/app/config/icon.config.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -376,8 +370,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // import { AmazingTimePickerModule } from 'amazing-time-picker'; 
 /* Services */
 
-
-
+// import { SocketWebService } from './service/web/socket.web.service';
+// import { ClientWebService } from './service/web/client.web.service';
 
 
 
@@ -398,12 +392,12 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_16__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__component_operator_top_bar_clock_clock_component__["a" /* ClockComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__component_operator_operator_component__["a" /* OperatorComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__component_operator_top_bar_top_bar_component__["a" /* TopBarComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__component_operator_main_panel_main_panel_component__["a" /* MainPanelComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__component_operator_main_panel_map_map_component__["a" /* AppMapComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__component_operator_top_bar_clock_clock_component__["a" /* ClockComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__component_operator_operator_component__["a" /* OperatorComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__component_operator_top_bar_top_bar_component__["a" /* TopBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__component_operator_main_panel_main_panel_component__["a" /* MainPanelComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__component_operator_main_panel_map_map_component__["a" /* AppMapComponent */],
             ],
             entryComponents: [],
             imports: [
@@ -412,28 +406,28 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_common__["CommonModule"],
                 __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormsModule"],
-                __WEBPACK_IMPORTED_MODULE_17__module_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_15__module_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_flex_layout__["a" /* FlexLayoutModule */],
                 // VerticalTimelineModule,
                 __WEBPACK_IMPORTED_MODULE_7__module_primeng_module__["a" /* PrimengModule */],
                 __WEBPACK_IMPORTED_MODULE_8__module_material_module__["a" /* MaterialModule */],
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_23__config_app_config__["a" /* AppConfig */],
-                __WEBPACK_IMPORTED_MODULE_24__config_icon_config__["a" /* IconConfig */],
+                __WEBPACK_IMPORTED_MODULE_21__config_app_config__["a" /* AppConfig */],
+                __WEBPACK_IMPORTED_MODULE_22__config_icon_config__["a" /* IconConfig */],
                 __WEBPACK_IMPORTED_MODULE_10__service_cesium_service__["a" /* CesiumService */],
-                __WEBPACK_IMPORTED_MODULE_11__service_web_socket_web_service__["a" /* SocketWebService */],
-                __WEBPACK_IMPORTED_MODULE_12__service_web_client_web_service__["a" /* ClientWebService */],
-                __WEBPACK_IMPORTED_MODULE_13__service_loadMapLayer_service__["a" /* LoadMapLayerService */],
-                __WEBPACK_IMPORTED_MODULE_14__service_f24TrackData_service__["a" /* F24TrackDataService */],
+                // SocketWebService,
+                // ClientWebService,
+                __WEBPACK_IMPORTED_MODULE_11__service_loadMapLayer_service__["a" /* LoadMapLayerService */],
+                __WEBPACK_IMPORTED_MODULE_12__service_f24TrackData_service__["a" /* F24TrackDataService */],
                 __WEBPACK_IMPORTED_MODULE_9__stomp_ng2_stompjs__["a" /* StompRService */],
                 {
                     provide: __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HTTP_INTERCEPTORS */],
-                    useClass: __WEBPACK_IMPORTED_MODULE_15__service_interceptor_service__["a" /* InterceptorService */],
+                    useClass: __WEBPACK_IMPORTED_MODULE_13__service_interceptor_service__["a" /* InterceptorService */],
                     multi: true,
                 },
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_16__app_component__["a" /* AppComponent */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */]],
         })
     ], AppModule);
     return AppModule;
@@ -3516,46 +3510,6 @@ var LoadMapLayerService = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */]])
     ], LoadMapLayerService);
     return LoadMapLayerService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/service/web/client.web.service.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ClientWebService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Handles REST API calls to web services.
- */
-var ClientWebService = /** @class */ (function () {
-    function ClientWebService() {
-    }
-    /**
-     * Initializes connection to STOMP web socket.
-     */
-    ClientWebService.prototype.initStomp = function () {
-    };
-    ClientWebService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [])
-    ], ClientWebService);
-    return ClientWebService;
 }());
 
 
