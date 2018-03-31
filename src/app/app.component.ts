@@ -9,6 +9,6 @@ import { SocketWebService } from './service/web/socket.web.service';
 })
 export class AppComponent {
   constructor(private appConfig: AppConfig, private socketWebService: SocketWebService) {
-    this.socketWebService.init();
+    // this.socketWebService.init();
   }
 }

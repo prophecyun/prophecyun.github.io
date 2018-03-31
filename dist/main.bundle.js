@@ -308,7 +308,7 @@ var AppComponent = /** @class */ (function () {
     function AppComponent(appConfig, socketWebService) {
         this.appConfig = appConfig;
         this.socketWebService = socketWebService;
-        this.socketWebService.init();
+        // this.socketWebService.init();
     }
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
