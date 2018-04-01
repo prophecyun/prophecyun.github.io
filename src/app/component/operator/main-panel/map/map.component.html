@@ -270,9 +270,17 @@
   </p-dialog>
 
   <!-- Dialog - Non Editable Entity -->
-  <p-dialog appendTo="body" *ngIf="cesiumDrawingToolsProperties.pickedEntity && !cesiumDrawingToolsProperties.pickedEntityEditable"
-    [(visible)]="cesiumDrawingToolsProperties.displayEntityDetailsDialog" [positionTop]="cesiumDrawingToolsProperties.displayEntityDetailsDialog_yPos"
-    [positionLeft]="cesiumDrawingToolsProperties.displayEntityDetailsDialog_xPos" width="300" [draggable]="true" [resizable]="true">
+  <!-- class="context-menu-position" -->
+  <!-- [positionTop]="cesiumDrawingToolsProperties.displayEntityDetailsDialog_yPos" -->
+  <!-- [positionLeft]="cesiumDrawingToolsProperties.displayEntityDetailsDialog_xPos"  -->
+  <p-dialog appendTo="body" *ngIf="cesiumDrawingToolsProperties.pickedEntity 
+  && !cesiumDrawingToolsProperties.pickedEntityEditable"
+    [(visible)]="cesiumDrawingToolsProperties.displayEntityDetailsDialog" 
+
+    [width]="300" 
+    [draggable]="true" 
+    [resizable]="true"
+    [dismissableMask]="true">
     <p-header fxLayout="row" fxLayoutAlign="start center">
       {{cesiumDrawingToolsProperties.pickedEntity.type}}
     </p-header>

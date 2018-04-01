@@ -34,15 +34,14 @@ export class AppMapComponent implements AfterViewInit {
     activeDataSource: null,
     totalEntityCount: 0,
     pickedEntity: null,
-    pickedCCTVs: [],
     pickedEntityEditable: true,
     selectedIcon: '',
     selectedColor: '',
     selectedAlpha: 10, // Note: Converted to 1-10 due to slider not able to take in decimal steps
     displayEntityDetailsDialog: false,
     displayEntityDetailsActions: [],
-    displayEntityDetailsDialog_xPos: 0,
-    displayEntityDetailsDialog_yPos: 0,
+    displayEntityDetailsDialog_xPos: 800,
+    displayEntityDetailsDialog_yPos: 100,
     drawingToolsHandler: null,
     drawingTools: [
       {
@@ -573,8 +572,8 @@ export class AppMapComponent implements AfterViewInit {
  Static DataSources / Overlays
  -----------------------------------------------------------------------------------*/
   private initStaticDataSources() {
-    this.loadMapLayerService.initLayers(this.cesiumViewer, this.cesiumDataSources);
-    
+    this.loadMapLayerService.initLayers(this.cesiumViewer, this.cesiumStaticDataSources);
+
   }
 
 
@@ -582,91 +581,18 @@ export class AppMapComponent implements AfterViewInit {
    Dynamic DataSources / Overlays
    -----------------------------------------------------------------------------------*/
   private initDynamicDataSources() {
-    // this.initBFTDataSource();
-    this.loadMapLayerService.initAirTracks(this.cesiumViewer, this.cesiumDynamicDataSources);
+ 
+    const trackDataSource = this.loadMapLayerService.initAirTracks(this.cesiumViewer, this.cesiumDynamicDataSources);
+    // Add action listener to map movement
+    this.f24TrackDataService.addMapMoveEndAction(this.cesiumViewer, trackDataSource, this.cesiumDrawingToolsProperties.pickedEntity);
+
+    // Update track position
+    setInterval(() => {
+      this.f24TrackDataService.updateTracks(trackDataSource, this.cesiumDrawingToolsProperties.pickedEntity);
+    }, 5000);
   }
 
-  // publishDataSource(dataSource: Cesium.DataSource) {
-  //   // TODO: Check for duplicate names in existing published datasources
-  //   // Solution: Currently appends current date-time to ensure uniqueness
-  //   // Will only have issues if 2 users publish exact same datasource at exact same timing
-  //   const currDateTimestamp = moment(new Date()).format('YYYYMMDD-hhmmss');
-  //   const publishedDataSource = new Cesium.CustomDataSource(dataSource.name + ' - ' + '[' + currDateTimestamp + ']');
 
-  //   const cesiumJulianDate = Cesium.JulianDate.fromDate(new Date());
-  //   const entities: any = dataSource.entities.values;
-  //   for (let i = 0; i < entities.length; i += 1) {
-  //     const entity = entities[i];
-
-  //     const clonedEntityId = publishedDataSource.name + ' - ' + entity.name;
-  //     const clonedEntity: any = publishedDataSource.entities.getOrCreateEntity(clonedEntityId);
-  //     clonedEntity.name = entity.name; // Initialise 'name'
-  //     clonedEntity.position = entity.position; // Initialise 'position'
-  //     if (entity.billboard) { // Billboard
-  //       clonedEntity.billboard = { // Initialise 'billboard'
-  //         image: entity.billboard.image.getValue(cesiumJulianDate),
-  //         height: entity.billboard.height.getValue(cesiumJulianDate),
-  //         width: entity.billboard.width.getValue(cesiumJulianDate),
-  //         color: entity.billboard.color.getValue(cesiumJulianDate),
-  //       };
-  //     } else if (entity.polyline) { // Polyline
-  //       clonedEntity.polyline = {  // Initialise 'polyline'
-  //         positions: entity.polyline.positions.getValue(cesiumJulianDate),
-  //         material: entity.polyline.material.getValue(cesiumJulianDate),
-  //         width: entity.polyline.width.getValue(cesiumJulianDate),
-  //       };
-  //     } else if (entity.polygon) { // Polygon
-  //       clonedEntity.polygon = {  // Initialise 'polygon'
-  //         hierarchy: entity.polygon.hierarchy.getValue(cesiumJulianDate),
-  //         material: entity.polygon.material.getValue(cesiumJulianDate),
-  //       };
-  //     } else if (entity.ellipse) { // Ellipse
-  //       clonedEntity.ellipse = {  // Initialise 'ellipse'
-  //         semiMinorAxis: entity.ellipse.semiMinorAxis.getValue(cesiumJulianDate),
-  //         semiMajorAxis: entity.ellipse.semiMajorAxis.getValue(cesiumJulianDate),
-  //         height: entity.ellipse.height.getValue(cesiumJulianDate),
-  //         material: entity.ellipse.material.getValue(cesiumJulianDate),
-  //       };
-  //     }
-  //     clonedEntity.label = { // Initialise 'label'
-  //       text: entity.label.text.getValue(cesiumJulianDate),
-  //       font: entity.label.font.getValue(cesiumJulianDate),
-  //       style: entity.label.style.getValue(cesiumJulianDate),
-  //       fillColor: entity.label.fillColor.getValue(cesiumJulianDate),
-  //       outlineColor: entity.label.outlineColor.getValue(cesiumJulianDate),
-  //       outlineWidth: entity.label.outlineWidth.getValue(cesiumJulianDate),
-  //       horizontalOrigin: entity.label.horizontalOrigin.getValue(cesiumJulianDate),
-  //       verticalOrigin: entity.label.verticalOrigin.getValue(cesiumJulianDate),
-  //       eyeOffset: entity.label.eyeOffset.getValue(cesiumJulianDate),
-  //       pixelOffset: entity.label.pixelOffset.getValue(cesiumJulianDate),
-  //       // scale: entity.label.scale.getValue(cesiumJulianDate),
-  //       show: entity.label.show.getValue(cesiumJulianDate),
-  //       // translucencyByDistance: entity.label.translucencyByDistance.getValue(cesiumJulianDate),
-  //       // pixelOffsetScaleByDistance:
-  //       // entity.label.pixelOffsetScaleByDistance.getValue(cesiumJulianDate),
-  //     };
-
-  //     // Custom properties
-  //     clonedEntity.customProperties = {
-  //       uploadedContentList: [],
-  //     };
-  //     for (let j = 0; j < entity.customProperties.uploadedContentList.length; j += 1) {
-  //       clonedEntity.customProperties.uploadedContentList.push(entity.customProperties.uploadedContentList[j]);
-  //     }
-  //   }
-
-  //   this.cesiumViewer.dataSources.add(publishedDataSource);
-  //   this.cesiumPublishedDataSources.push(publishedDataSource);
-
-  //   // TODO: Broadcast new published datasource
-  // }
-
-  /*-----------------------------------------------------------------------------------
-   Published DataSources / Overlays
-   -----------------------------------------------------------------------------------*/
-  // private initPublishedDataSources() {
-  //   this.cesiumPublishedDataSources = []; // TODO: Init/Get all published datasources from DB
-  // }
 
 
 

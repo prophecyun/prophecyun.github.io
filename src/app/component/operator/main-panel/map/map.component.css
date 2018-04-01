@@ -4,6 +4,12 @@
   width: 100%;
 }
 
+.context-menu-position {
+  position: absolute;
+  right: 20px !important;
+  top: 100px !important;
+}
+
 .icon-button {
   flex-shrink: 0;
   cursor: pointer;

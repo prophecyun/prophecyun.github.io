@@ -27,24 +27,16 @@ export class LoadMapLayerService {
     this.initFIRLayer(cesiumViewer, cesiumStaticDataSources);
   }
 
-  initAirTracks(cesiumViewer: Cesium.Viewer, cesiumDynamicDataSources: any[]) {
+  initAirTracks(cesiumViewer: Cesium.Viewer, cesiumDynamicDataSources: any[]): Cesium.DataSource {
     // NEW
     // const layerName = 'Air Track';
     let dataSource = this.cesiumService.getDataSource(cesiumViewer, this.appConfig.LAYER_NAMES.airTrackLayerName);
     if (!dataSource) {
       // Need to initialize
       dataSource = this.cesiumService.createDataSource(cesiumViewer, this.appConfig.LAYER_NAMES.airTrackLayerName);
-      dataSource.show = true; // Set 'dataSource.show' to true as default on create
       cesiumDynamicDataSources.push(dataSource);
     }
-
-    // Add action listener to map movement
-    this.addMapMoveEndAction(cesiumViewer);
-
-    // Update track position
-    setInterval(() => {
-      this.f24TrackDataService.updateTracks(dataSource);
-    }, 5000);
+    return dataSource;
   }
 
   private initDroneRestrictedZoneLayer(cesiumViewer: Cesium.Viewer, cesiumStaticDataSources: any[]) {
@@ -265,48 +257,6 @@ export class LoadMapLayerService {
     });
   }
 
-  private addMapMoveEndAction(cesiumViewer: Cesium.Viewer) {
-    cesiumViewer.camera.moveEnd.addEventListener(() => {
-      // console.log('MOVE end');
-      let cartographic: any;
-
-      // Get viewport
-      const pixWidth = cesiumViewer.scene.canvas.clientWidth;
-      const pixHeight = cesiumViewer.scene.canvas.clientHeight;
-      // let topRight = cesiumViewer.scene.camera.pickEllipsoid(new Cesium.Cartesian2(pixWidth - 1, 1));
-      const topLeft = cesiumViewer.scene.camera.pickEllipsoid(new Cesium.Cartesian2(1, 1));
-      // let bottomLeft = cesiumViewer.scene.camera.pickEllipsoid(new Cesium.Cartesian2(1, pixHeight - 1));
-      const bottomRight = cesiumViewer.scene.camera.pickEllipsoid(new Cesium.Cartesian2(pixWidth - 1, pixHeight - 1));
-      if (!topLeft || !bottomRight) {
-        console.warn('Failed to find viewer edge coordinates',
-          [topLeft, bottomRight]);
-      }
-
-      cartographic = cesiumViewer.scene.globe.ellipsoid.cartesianToCartographic(topLeft);
-      const lon1 = Cesium.Math.toDegrees(cartographic.longitude).toFixed(8);
-      const lat1 = Cesium.Math.toDegrees(cartographic.latitude).toFixed(8);
-      // console.log('top left', lat1, lon1);
-
-      cartographic = cesiumViewer.scene.globe.ellipsoid.cartesianToCartographic(bottomRight);
-      const lon2 = Cesium.Math.toDegrees(cartographic.longitude).toFixed(8);
-      const lat2 = Cesium.Math.toDegrees(cartographic.latitude).toFixed(8);
-      // console.log('bottom right', lat2, lon2);
-
-      this.appConfig.setBounds(lat1, lat2, lon1, lon2);
-
-      const layerName = this.appConfig.LAYER_NAMES.airTrackLayerName;
-      const dataSource = this.cesiumService.getDataSource(cesiumViewer, layerName);
-      if (dataSource) {
-        this.f24TrackDataService.updateTracks(dataSource);
-      }
-    });
-
-
-    // Doesnt work
-    // const rect = new Cesium.Rectangle();
-    // cesiumViewer.camera.computeViewRectangle(Cesium.Ellipsoid.WGS84, rect);
-    // console.log('rect', rect);
-  }
 
 
   // to load from ATSH folder

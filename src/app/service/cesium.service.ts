@@ -350,13 +350,15 @@ export class CesiumService {
   private initContextDialog(cesiumViewer: Cesium.Viewer,
     windowXYPosition: Cesium.Cartesian2, cesiumDrawingToolsProperties) {
 
-    cesiumDrawingToolsProperties.displayEntityDetailsDialog_xPos = windowXYPosition.x + 10;
-    cesiumDrawingToolsProperties.displayEntityDetailsDialog_yPos = windowXYPosition.y + 10;
+    // cesiumDrawingToolsProperties.displayEntityDetailsDialog_xPos = windowXYPosition.x + 10;
+    // cesiumDrawingToolsProperties.displayEntityDetailsDialog_yPos = windowXYPosition.y + 10;
+    // cesiumDrawingToolsProperties.displayEntityDetailsDialog_xPos = 100;
+    // cesiumDrawingToolsProperties.displayEntityDetailsDialog_yPos = 100;
     if (cesiumDrawingToolsProperties.displayEntityDetailsDialog) {
-      cesiumDrawingToolsProperties.displayEntityDetailsDialog = false;
-      setTimeout(() => {
-        cesiumDrawingToolsProperties.displayEntityDetailsDialog = true;
-      }, 100);
+      // cesiumDrawingToolsProperties.displayEntityDetailsDialog = false;
+      // setTimeout(() => {
+      //   cesiumDrawingToolsProperties.displayEntityDetailsDialog = true;
+      // }, 100);
     } else {
       cesiumDrawingToolsProperties.displayEntityDetailsDialog = true;
     }
